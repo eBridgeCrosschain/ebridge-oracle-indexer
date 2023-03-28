@@ -1,4 +1,3 @@
-using System;
 using Oracle.Indexer.Entities;
 
 namespace Oracle.Indexer.GraphQL;

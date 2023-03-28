@@ -1,5 +1,3 @@
-using AElf.Contracts.Bridge;
-using AElf.Contracts.MultiToken;
 using AElf.Contracts.Oracle;
 using AElfIndexer.Client.Handlers;
 using AutoMapper;

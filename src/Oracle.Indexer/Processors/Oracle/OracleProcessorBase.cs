@@ -1,5 +1,4 @@
 using AElf.CSharp.Core;
-using AElf.Types;
 using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;

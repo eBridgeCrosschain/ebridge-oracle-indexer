@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Oracle.Indexer;
 
 public class ContractInfoOptions
