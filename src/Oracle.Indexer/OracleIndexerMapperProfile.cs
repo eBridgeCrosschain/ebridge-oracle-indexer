@@ -18,6 +18,7 @@ public class OracleIndexerMapperProfile:Profile
         CreateMap<LogEventContext, QueryCreated>();
         CreateMap<LogEventContext, SufficientCommitmentsCollected>();
         
+        CreateMap<LogEventContext, OracleQueryInfoIndex>();
         CreateMap<LogEventContext, ReportInfoIndex>();
         
         CreateMap<OracleQueryInfoIndex, OracleQueryInfoDto>();

@@ -33,6 +33,6 @@ public abstract class ReportProcessorBase<TEvent>: AElfLogEventProcessorBase<TEv
     
     protected string GetReportInfoId(LogEventContext context)
     {
-        return IdGenerateHelper.GetId(context.ChainId, context.TransactionId);
+        return IdGenerateHelper.GetId(context.ChainId, context.TransactionId, typeof(TEvent).Name);
     }
 }

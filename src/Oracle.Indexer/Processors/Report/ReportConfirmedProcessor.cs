@@ -11,27 +11,33 @@ namespace Oracle.Indexer.Processors.Report;
 
 public class ReportConfirmedProcessor: ReportProcessorBase<ReportConfirmed>
 {
+    private readonly ILogger<ReportConfirmedProcessor> _logger;
+    
     public ReportConfirmedProcessor(ILogger<ReportConfirmedProcessor> logger, IObjectMapper objectMapper,
         IAElfIndexerClientEntityRepository<ReportInfoIndex, LogEventInfo> repository,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions)
         : base(logger, objectMapper, repository, contractInfoOptions)
     {
+        _logger = logger;
     }
 
     protected override async Task HandleEventAsync(ReportConfirmed eventValue, LogEventContext context)
     {
         var id = GetReportInfoId(context);
-        var reportInfo = new ReportInfoIndex()
+
+        _logger.LogInformation("ReportConfirmedProcessor Signature: {Signature}", eventValue.Signature);
+        var reportInfo = new ReportInfoIndex
         {
-            Id = id,
-            RoundId = eventValue.RoundId,
-            Token = eventValue.Token,
-            TargetChainId = eventValue.TargetChainId,
-            Signature = eventValue.Signature,
-            IsAllNodeConfirmed = eventValue.IsAllNodeConfirmed,
-            Step = ReportStep.Confirmed
+            Id = id
         };
         ObjectMapper.Map<LogEventContext, ReportInfoIndex>(context, reportInfo);
+        
+        reportInfo.RoundId = eventValue.RoundId;
+        reportInfo.Token = eventValue.Token;
+        reportInfo.TargetChainId = eventValue.TargetChainId;
+        reportInfo.Signature = eventValue.Signature;
+        reportInfo.IsAllNodeConfirmed = eventValue.IsAllNodeConfirmed;
+        reportInfo.Step = ReportStep.Confirmed;
 
         await Repository.AddOrUpdateAsync(reportInfo);
     }

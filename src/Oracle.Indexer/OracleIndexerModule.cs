@@ -29,6 +29,6 @@ public class OracleIndexerModule:AElfIndexerClientPluginBaseModule<OracleIndexer
         Configure<ContractInfoOptions>(configuration.GetSection("ContractInfo"));
     }
 
-    protected override string ClientId => "AElfIndexer_DApp";
-    protected override string Version => "";
+    protected override string ClientId => "AElfIndexer_Oracle";
+    protected override string Version => "65d229925bcf426d8c38c501d886853f";
 }
