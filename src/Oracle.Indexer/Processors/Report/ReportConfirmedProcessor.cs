@@ -28,16 +28,11 @@ public class ReportConfirmedProcessor: ReportProcessorBase<ReportConfirmed>
         _logger.LogInformation("ReportConfirmedProcessor Signature: {Signature}", eventValue.Signature);
         var reportInfo = new ReportInfoIndex
         {
-            Id = id
+            Id = id,
+            Step = ReportStep.Confirmed
         };
-        ObjectMapper.Map<LogEventContext, ReportInfoIndex>(context, reportInfo);
-        
-        reportInfo.RoundId = eventValue.RoundId;
-        reportInfo.Token = eventValue.Token;
-        reportInfo.TargetChainId = eventValue.TargetChainId;
-        reportInfo.Signature = eventValue.Signature;
-        reportInfo.IsAllNodeConfirmed = eventValue.IsAllNodeConfirmed;
-        reportInfo.Step = ReportStep.Confirmed;
+        ObjectMapper.Map(context, reportInfo);
+        ObjectMapper.Map(eventValue, reportInfo);
 
         await Repository.AddOrUpdateAsync(reportInfo);
     }

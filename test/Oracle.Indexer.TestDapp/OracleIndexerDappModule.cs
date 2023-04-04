@@ -21,7 +21,6 @@ using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.Threading;
-// using AElfIndexer.MongoDB;
 
 namespace Oracle.Indexer.TestDapp;
 
@@ -31,7 +30,6 @@ namespace Oracle.Indexer.TestDapp;
     typeof(AbpAutoMapperModule),
     typeof(AbpAspNetCoreSerilogModule)
     ,typeof(OracleIndexerModule)
-    // typeof(AElfIndexerMongoDbModule)
     )]
 public class OracleIndexerDappModule : AbpModule
 {
@@ -52,11 +50,6 @@ public class OracleIndexerDappModule : AbpModule
         {
             return new ClientBuilder()
                 .ConfigureDefaults()
-                // .UseRedisClustering(opt =>
-                // {
-                //     opt.ConnectionString = configuration["Orleans:ClusterDbConnection"];
-                //     opt.Database = Convert.ToInt32(configuration["Orleans:ClusterDbNumber"]);
-                // })
                 .UseMongoDBClient(configuration["Orleans:MongoDBClient"])
                 .UseMongoDBClustering(options =>
                 {
@@ -70,7 +63,6 @@ public class OracleIndexerDappModule : AbpModule
                 })
                 .ConfigureApplicationParts(parts =>
                     parts.AddApplicationPart(typeof(AElfIndexerGrainsModule).Assembly).WithReferences())
-                // .AddSimpleMessageStreamProvider(AElfIndexerApplicationConsts.MessageStreamName)
                 .ConfigureLogging(builder => builder.AddProvider(o.GetService<ILoggerProvider>()))
                 .AddKafka(AElfIndexerApplicationConsts.MessageStreamName)
                 .WithOptions(options =>
@@ -116,8 +108,6 @@ public class OracleIndexerDappModule : AbpModule
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
-        // var client = context.ServiceProvider.GetRequiredService<IClusterClient>();
-        // AsyncHelper.RunSync(async ()=> await client.Connect());
         var app = context.GetApplicationBuilder();
         app.UseRouting();
         app.UseCors();

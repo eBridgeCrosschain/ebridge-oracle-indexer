@@ -24,16 +24,10 @@ public class QueryCreatedProcessor: OracleProcessorBase<QueryCreated>
         var info = new OracleQueryInfoIndex()
         {
             Id = id,
-            Step = OracleStep.QueryCreated,
-            QueryId = eventValue.QueryId.ToHex(),
-            DesignatedNodeList = eventValue.DesignatedNodeList.Value.Select(o => o.ToBase58()).ToList(),
-            QueryInfo = new Entities.QueryInfo
-            {
-                Title = eventValue.QueryInfo.Title,
-                Options = eventValue.QueryInfo.Options.ToList()
-            }
+            Step = OracleStep.QueryCreated
         };
-        ObjectMapper.Map<LogEventContext, OracleQueryInfoIndex>(context, info);
+        ObjectMapper.Map(context, info);
+        ObjectMapper.Map(eventValue, info);
 
         await Repository.AddOrUpdateAsync(info);
     }

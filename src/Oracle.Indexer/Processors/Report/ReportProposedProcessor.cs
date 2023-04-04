@@ -24,13 +24,10 @@ public class ReportProposedProcessor: ReportProcessorBase<ReportProposed>
         var reportInfo = new ReportInfoIndex()
         {
             Id = id,
-            RoundId = eventValue.RoundId,
-            Token = eventValue.Token,
-            TargetChainId = eventValue.TargetChainId,
-            RawReport = eventValue.RawReport,
             Step = ReportStep.Proposed
         };
-        ObjectMapper.Map<LogEventContext, ReportInfoIndex>(context, reportInfo);
+        ObjectMapper.Map(context, reportInfo);
+        ObjectMapper.Map(eventValue, reportInfo);
         await Repository.AddOrUpdateAsync(reportInfo);
     }
 }
