@@ -32,9 +32,11 @@ public class Query
         }
 
         QueryContainer Filter(QueryContainerDescriptor<ReportInfoIndex> f) => f.Bool(b => b.Must(mustQuery));
+        
+        Func<SortDescriptor<ReportInfoIndex>, IPromise<IList<ISort>>> sort = s =>
+            s.Ascending(a => a.BlockHeight).Ascending(d => d.IsAllNodeConfirmed);
 
-        var result = await repository.GetListAsync(Filter, sortExp: k => k.BlockHeight,
-            sortType: SortOrder.Ascending);
+        var result = await repository.GetSortListAsync(Filter, sortFunc: sort);
         return objectMapper.Map<List<ReportInfoIndex>, List<ReportInfoDto>>(result.Item2);
     }
 
