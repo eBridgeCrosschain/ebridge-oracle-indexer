@@ -37,7 +37,8 @@ public class OracleIndexerMapperProfile:Profile
         CreateMap<LogEventContext, ReportInfoIndex>();
         CreateMap<ReportInfoIndex, ReportInfoDto>();
         CreateMap<ReportConfirmed, ReportInfoIndex>();
-        CreateMap<ReportProposed, ReportInfoIndex>();
-        
+        CreateMap<AElf.Contracts.Report.OffChainQueryInfo, Entities.OffChainQueryInfo>()
+            .ForMember(d => d.Options, opt => opt.MapFrom(o => o.Options.ToList()));
+        CreateMap<Entities.OffChainQueryInfo, OffChainQueryInfoDto>();
     }
 }

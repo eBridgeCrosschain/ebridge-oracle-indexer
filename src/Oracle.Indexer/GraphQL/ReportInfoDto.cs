@@ -11,4 +11,11 @@ public class ReportInfoDto : GraphQLDto
     public string RawReport { get; set; }
     public string Signature { get; set; }
     public bool IsAllNodeConfirmed { get; set; }
+    public OffChainQueryInfoDto QueryInfo { get; set; }
+}
+
+public class OffChainQueryInfoDto
+{
+    public string Title { get; set; }
+    public List<string> Options { get; set; }
 }

@@ -24,7 +24,8 @@ public class ReportProposedProcessor: ReportProcessorBase<ReportProposed>
         var reportInfo = new ReportInfoIndex()
         {
             Id = id,
-            Step = ReportStep.Proposed
+            Step = ReportStep.Proposed,
+            ReceiptId = eventValue.QueryInfo.Title.Split("_")[2]
         };
         ObjectMapper.Map(context, reportInfo);
         ObjectMapper.Map(eventValue, reportInfo);
