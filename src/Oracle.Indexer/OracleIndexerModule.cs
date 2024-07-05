@@ -30,5 +30,5 @@ public class OracleIndexerModule:AElfIndexerClientPluginBaseModule<OracleIndexer
     }
 
     protected override string ClientId => "AElfIndexer_Oracle";
-    protected override string Version => "65d229925bcf426d8c38c501d886853f";
+    protected override string Version => "71a4e41737ed4aefa21426cffd4e2554";
 }
