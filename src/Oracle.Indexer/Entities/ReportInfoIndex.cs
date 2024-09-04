@@ -16,11 +16,17 @@ public class ReportInfoIndex : OracleIndexerEntity<string>, IIndexBuild
     [Keyword]
     public string Signature { get; set; }
     public bool IsAllNodeConfirmed { get; set; }
-    
+    public OffChainQueryInfo QueryInfo { get; set; }
 }
 
 public enum ReportStep
 {
     Proposed = 0,
     Confirmed = 1
+}
+
+public class OffChainQueryInfo
+{
+    public string Title { get; set; }
+    public List<string> Options { get; set; }
 }
