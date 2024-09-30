@@ -1,12 +1,12 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DC6D5F28-CD0F-49C9-BD0D-564A059595BD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F07E638D-DEC9-4D0B-A815-791C0AED81C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oracle.Indexer", "src\Oracle.Indexer\Oracle.Indexer.csproj", "{70CD7448-F1CD-4C60-A4F4-9FF25F910AD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleIndexer", "src\OracleIndexer\OracleIndexer.csproj", "{C00C5349-FF95-41F5-A56B-299986F157EB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FFF6C1F0-1595-4D71-9F12-D4CE3696A5CE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CF8ECC12-55BE-457D-A3EE-D4283041B686}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oracle.Indexer.TestDapp", "test\Oracle.Indexer.TestDapp\Oracle.Indexer.TestDapp.csproj", "{978F2E2F-EDB5-4351-9C6E-6EA18BDF9FD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleIndexer.Tests", "test\OracleIndexer.Tests\OracleIndexer.Tests.csproj", "{1DA69092-9C61-4660-8A61-3BA30ED892E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,17 +14,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{70CD7448-F1CD-4C60-A4F4-9FF25F910AD3} = {DC6D5F28-CD0F-49C9-BD0D-564A059595BD}
-		{978F2E2F-EDB5-4351-9C6E-6EA18BDF9FD0} = {FFF6C1F0-1595-4D71-9F12-D4CE3696A5CE}
+		{C00C5349-FF95-41F5-A56B-299986F157EB} = {F07E638D-DEC9-4D0B-A815-791C0AED81C0}
+		{1DA69092-9C61-4660-8A61-3BA30ED892E0} = {CF8ECC12-55BE-457D-A3EE-D4283041B686}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{70CD7448-F1CD-4C60-A4F4-9FF25F910AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{70CD7448-F1CD-4C60-A4F4-9FF25F910AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{70CD7448-F1CD-4C60-A4F4-9FF25F910AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{70CD7448-F1CD-4C60-A4F4-9FF25F910AD3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{978F2E2F-EDB5-4351-9C6E-6EA18BDF9FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{978F2E2F-EDB5-4351-9C6E-6EA18BDF9FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{978F2E2F-EDB5-4351-9C6E-6EA18BDF9FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{978F2E2F-EDB5-4351-9C6E-6EA18BDF9FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C00C5349-FF95-41F5-A56B-299986F157EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C00C5349-FF95-41F5-A56B-299986F157EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C00C5349-FF95-41F5-A56B-299986F157EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C00C5349-FF95-41F5-A56B-299986F157EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DA69092-9C61-4660-8A61-3BA30ED892E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA69092-9C61-4660-8A61-3BA30ED892E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA69092-9C61-4660-8A61-3BA30ED892E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA69092-9C61-4660-8A61-3BA30ED892E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
